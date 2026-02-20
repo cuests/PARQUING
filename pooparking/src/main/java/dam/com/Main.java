@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
         Vehicles v1 = new Cotxe("1234-ABC");
         Vehicles v2 = new Motocicleta("9999-XYZ");
-
         System.out.println(v1.getMida());
         System.out.println(v2.getMatricula());
 

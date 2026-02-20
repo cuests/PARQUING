@@ -1,21 +1,32 @@
-package dam.com;
+package dam.com.Tickets;
+
+import java.time.LocalDateTime;
 
 import dam.com.vehicles.Vehicles;
 
 public class Tiquet {
-    private String vehicle;
+    private int numero;
+    private Vehicles vehicle;
     private String plaça;
     private String horaEntrada;
     private String horaSortida;
 
-    public Tiquet(String vehicle, String plaça, String horaEntrada, String horaSortida) {
+    static private int comptador = 0;
+
+    public Tiquet(Vehicles vehicle, String plaça, String horaEntrada, String horaSortida) {
+        this.numero = comptador++;
         this.vehicle = vehicle;
         this.plaça = plaça; 
-        this.horaEntrada = horaEntrada;
+        this.horaEntrada = LocalDateTime.now().toString();
         this.horaSortida = horaSortida;
+
     }
 
-    public String getVehicle() {
+    public int getNumero() {
+        return numero;
+    }
+
+    public Vehicles getVehicle() {
         return vehicle;
     }
 
@@ -23,7 +34,7 @@ public class Tiquet {
         return plaça;
     }
 
-    public void setVehicle(String vehicle) {
+    public void setVehicle(Vehicles vehicle) {
         this.vehicle = vehicle;
     }
 
@@ -53,15 +64,16 @@ public class Tiquet {
         }
         return null;
     }
-    public void ConsultarHoraEntrada(Vehicles vehicle) {
+
+    public String ConsultarHoraSortida(Vehicles vehicle) {
         if (vehicle.equals(this.vehicle)) {
-            System.out.println(horaEntrada);
+            return horaSortida;
         }
+        return null;
     }
-     public void ConsultarHoraSortida(Vehicles vehicle) {
-        if (vehicle.equals(this.vehicle)) {
-            System.out.println(horaSortida);
-        }
+
+    public long minuts() {
+        return java.time.Duration.between(LocalDateTime.parse(horaEntrada), LocalDateTime.parse(horaSortida)).toMinutes();
     }
 
      @Override
