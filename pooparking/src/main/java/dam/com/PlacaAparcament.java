@@ -1,5 +1,8 @@
 package dam.com;
 
+import dam.com.places.Coordenada;
+import dam.com.vehicles.Vehicles;
+
 public abstract class PlacaAparcament {
     protected int numeroPlaca;
     protected boolean estatDisponibilitat;
@@ -54,6 +57,23 @@ public abstract class PlacaAparcament {
         } else {
             return "La placa esta ocupada";
         }
+    }
+
+    /**
+     * Intenta aparcar un vehicle en aquesta placa.
+     * Lança una excepció si la plaça està ocupada o el vehicle no és compatible.
+     */
+    public void aparcarVehicle(Vehicles vehicle) throws Exception {
+        if (!this.estatDisponibilitat) {
+            throw new IllegalStateException("La plaça està ocupada");
+        }
+
+        if (!compatible(vehicle)) {
+            throw new IllegalArgumentException("Vehicle incompatible amb la plaça");
+            }
+
+        setVehicleAparcat(vehicle);
+        ocuparPlaca();
     }
 
 }

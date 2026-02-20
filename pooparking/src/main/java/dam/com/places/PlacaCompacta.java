@@ -1,4 +1,8 @@
-package dam.com;
+package dam.com.places;
+
+import dam.com.PlacaAparcament;
+import dam.com.vehicles.MidaVehicle;
+import dam.com.vehicles.Vehicles;
 
 public class PlacaCompacta extends PlacaAparcament{
 

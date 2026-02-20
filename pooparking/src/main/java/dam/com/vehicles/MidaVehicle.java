@@ -1,4 +1,4 @@
-package dam.com;
+package dam.com.vehicles;
 
 public enum MidaVehicle {
     PETIT,

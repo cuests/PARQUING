@@ -1,4 +1,8 @@
-package dam.com;
+package dam.com.places;
+
+import dam.com.PlacaAparcament;
+import dam.com.vehicles.MidaVehicle;
+import dam.com.vehicles.Vehicles;
 
 public class PlacaRegular extends PlacaAparcament {
 
@@ -14,7 +18,8 @@ public class PlacaRegular extends PlacaAparcament {
     }
     @Override
     public boolean compatible (Vehicles vehicle){
-        if (vehicle.getMida() == MidaVehicle.PETIT && vehicle.getMida() == MidaVehicle.MITJA){
+        // una placa regular és compatible amb vehicles PETIT o MITJA
+        if (vehicle.getMida() == MidaVehicle.PETIT || vehicle.getMida() == MidaVehicle.MITJA){
             return true;
         }
         return false;

@@ -1,4 +1,4 @@
-package dam.com;
+package dam.com.vehicles;
 
 public abstract class Vehicles {
     protected String matricula;
