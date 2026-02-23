@@ -22,5 +22,11 @@ public class PlacaGran extends PlacaAparcament {
         return "PlacaGran [MidaMaxima=" + MidaMaxima + super.toString() + "]";
     }
 
+        @Override
+        protected void horaSortida(int i) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'horaSortida'");
+        }
+
 
 }

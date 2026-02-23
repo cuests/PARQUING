@@ -33,7 +33,8 @@ public class Main {
         gestor.afegirPlaça(new PlacaCompacta(4, coordenades));
         gestor.afegirPlaça(new PlacaGran(5, coordenades));
 
-        Tiquet tiquet = new Tiquet(v2, placa);
+        Tiquet tiquet = new Tiquet(new Motocicleta("9999-XYZ"), p1);
+        System.out.println(tiquet);
 
     }
 }

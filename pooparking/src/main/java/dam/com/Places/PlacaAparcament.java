@@ -93,4 +93,6 @@ public abstract class PlacaAparcament {
         ocuparPlaca();
     }
 
+    protected abstract void horaSortida(int i);
+
 }

@@ -24,6 +24,11 @@ public class PlacaRegular extends PlacaAparcament {
     public String toString() {
         return "PlacaRegular [MidaMaxima=" + MidaMaxima + super.toString() + "]";
     }
+        @Override
+        protected void horaSortida(int i) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'horaSortida'");
+        }
 
 
 }
