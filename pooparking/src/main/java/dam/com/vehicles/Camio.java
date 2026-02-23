@@ -4,9 +4,7 @@ public class Camio extends Vehicles {
 
     public Camio (String matricula) {
 
-        setMatricula(matricula);
-        setMida(MidaVehicle.GRAN);
-    
+        this.matricula = matricula;
+        this.mida = MidaVehicle.GRAN;
     }
-
 }

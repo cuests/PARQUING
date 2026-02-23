@@ -4,7 +4,10 @@ public abstract class Vehicles {
     protected String matricula;
     protected MidaVehicle mida;
 
-
+    @Override
+    public String toString() {
+        return "Vehicles [matricula=" + matricula + ", mida=" + mida + "]";
+    }
 
     public String getMatricula() {
         return matricula;

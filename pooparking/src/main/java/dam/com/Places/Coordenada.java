@@ -1,4 +1,4 @@
-package dam.com.places;
+package dam.com.Places;
 
 public class Coordenada {
     private double x;

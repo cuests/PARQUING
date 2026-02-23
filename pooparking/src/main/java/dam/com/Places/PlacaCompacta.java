@@ -1,6 +1,5 @@
-package dam.com.places;
+package dam.com.Places;
 
-import dam.com.PlacaAparcament;
 import dam.com.vehicles.MidaVehicle;
 import dam.com.vehicles.Vehicles;
 
@@ -18,11 +17,15 @@ public class PlacaCompacta extends PlacaAparcament{
 
     public PlacaCompacta(int numeroPlaca, Coordenada[] coordenades) {
 
-        setNumeroPlaca(numeroPlaca);
-        setUbicacio(coordenades);
+        super(numeroPlaca, coordenades);
         this.MidaMaxima = MidaVehicle.PETIT;
-        this.estatDisponibilitat = true;
-        
+    }
+
+    @Override
+    public String toString() {
+        return "PlacaCompacta [MidaMaxima=" + MidaMaxima + super.toString() + "]";
     }
 
 }
+
+

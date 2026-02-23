@@ -1,6 +1,7 @@
-package dam.com;
+package dam.com.Places;
 
-import dam.com.places.Coordenada;
+import java.util.Arrays;
+
 import dam.com.vehicles.Vehicles;
 
 public abstract class PlacaAparcament {
@@ -8,6 +9,18 @@ public abstract class PlacaAparcament {
     protected boolean estatDisponibilitat;
     protected Vehicles vehicleAparcat;
     protected Coordenada[] ubicacio;
+
+    public PlacaAparcament(int numeroPlaca, Coordenada[] coordenades) {
+        setNumeroPlaca(numeroPlaca);
+        setUbicacio(coordenades);
+        this.estatDisponibilitat = true;
+    }
+
+    @Override
+    public String toString() {
+        return "PlacaAparcament [numeroPlaca=" + numeroPlaca + ", estatDisponibilitat=" + estatDisponibilitat
+                + ", vehicleAparcat=" + vehicleAparcat + ", ubicacio=" + Arrays.toString(ubicacio) + "]";
+    }
 
     public int getNumeroPlaca() {
         return numeroPlaca;
@@ -53,7 +66,6 @@ public abstract class PlacaAparcament {
         this.vehicleAparcat = null;
         this.estatDisponibilitat = true;
     }
-    
 
     public abstract boolean compatible (Vehicles vehicle);
 

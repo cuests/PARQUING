@@ -1,8 +1,9 @@
 package dam.com.Tickets;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
-import dam.com.PlacaAparcament;
+import dam.com.Places.PlacaAparcament;
 import dam.com.vehicles.Vehicles;
 
 public class Tiquet {
@@ -12,21 +13,14 @@ public class Tiquet {
     private LocalDateTime horaEntrada;
     private LocalDateTime horaSortida;
 
-    static private int comptador = 0;
+    static private int comptador = 1;
 
-    public Tiquet(Vehicles vehicle, PlacaAparcament plaça, LocalDateTime horaEntrada, LocalDateTime horaSortida) {
+    public Tiquet(Vehicles vehicle, PlacaAparcament plaça) {
         this.numero = comptador++;
         this.vehicle = vehicle;
-        this.plaça = plaça; 
-        this.horaEntrada = horaEntrada;
-        this.horaSortida = horaSortida;
-
+        this.plaça = plaça;
+        this.horaEntrada = LocalDateTime.now();
     }
-
-    public Tiquet(PlacaAparcament plaça2, Vehicles vehicle2) {
-        //TODO Auto-generated constructor stub
-    }
-
     public int getNumero() {
         return numero;
     }
@@ -78,7 +72,8 @@ public class Tiquet {
     }
 
     public long minuts() {
-        return java.time.Duration.between(horaEntrada, horaSortida).toMinutes();
+        Duration duracio = Duration.between(horaEntrada, horaSortida);
+        return duracio.toMinutes();
     }
 
      @Override

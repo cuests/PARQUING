@@ -1,9 +1,11 @@
 package dam.com;
 
-import dam.com.places.Coordenada;
-import dam.com.places.PlacaCompacta;
-import dam.com.places.PlacaGran;
-import dam.com.places.PlacaRegular;
+import dam.com.Places.Coordenada;
+import dam.com.Places.PlacaAparcament;
+import dam.com.Places.PlacaCompacta;
+import dam.com.Places.PlacaGran;
+import dam.com.Places.PlacaRegular;
+import dam.com.Tickets.Tiquet;
 import dam.com.vehicles.Cotxe;
 import dam.com.vehicles.Motocicleta;
 import dam.com.vehicles.Vehicles;
@@ -30,6 +32,8 @@ public class Main {
         gestor.afegirPlaça(p1);
         gestor.afegirPlaça(new PlacaCompacta(4, coordenades));
         gestor.afegirPlaça(new PlacaGran(5, coordenades));
+
+        Tiquet tiquet = new Tiquet(v2, placa);
 
     }
 }
