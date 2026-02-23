@@ -2,24 +2,29 @@ package dam.com.Tickets;
 
 import java.time.LocalDateTime;
 
+import dam.com.PlacaAparcament;
 import dam.com.vehicles.Vehicles;
 
 public class Tiquet {
     private int numero;
     private Vehicles vehicle;
-    private String plaça;
-    private String horaEntrada;
-    private String horaSortida;
+    private PlacaAparcament plaça;
+    private LocalDateTime horaEntrada;
+    private LocalDateTime horaSortida;
 
     static private int comptador = 0;
 
-    public Tiquet(Vehicles vehicle, String plaça, String horaEntrada, String horaSortida) {
+    public Tiquet(Vehicles vehicle, PlacaAparcament plaça, LocalDateTime horaEntrada, LocalDateTime horaSortida) {
         this.numero = comptador++;
         this.vehicle = vehicle;
         this.plaça = plaça; 
-        this.horaEntrada = LocalDateTime.now().toString();
+        this.horaEntrada = horaEntrada;
         this.horaSortida = horaSortida;
 
+    }
+
+    public Tiquet(PlacaAparcament plaça2, Vehicles vehicle2) {
+        //TODO Auto-generated constructor stub
     }
 
     public int getNumero() {
@@ -30,7 +35,7 @@ public class Tiquet {
         return vehicle;
     }
 
-    public String getPlaça() {
+    public PlacaAparcament getPlaça() {
         return plaça;
     }
 
@@ -38,34 +43,34 @@ public class Tiquet {
         this.vehicle = vehicle;
     }
 
-    public void setPlaça(String plaça) {
+    public void setPlaça(PlacaAparcament plaça) {
         this.plaça = plaça;
     }
 
-    public void setHoraEntrada(String horaEntrada) {
+    public void setHoraEntrada(LocalDateTime horaEntrada) {
         this.horaEntrada = horaEntrada;
     }
 
-    public void setHoraSortida(String horaSortida) {            
+    public void setHoraSortida(LocalDateTime horaSortida) {            
         this.horaSortida = horaSortida;
     }
 
-    public String getHoraEntrada() {
+    public LocalDateTime getHoraEntrada() {
         return horaEntrada;
     }
 
-    public String getHoraSortida() {
-        return horaSortida; 
+    public LocalDateTime getHoraSortida() {
+        return horaSortida;
     }
 
-    public String ConsultarPlaca(Vehicles vehicle) {
+    public PlacaAparcament ConsultarPlaca(Vehicles vehicle) {
         if (vehicle.equals(this.vehicle)) {
             return plaça;
         }
         return null;
     }
 
-    public String ConsultarHoraSortida(Vehicles vehicle) {
+    public LocalDateTime ConsultarHoraSortida(Vehicles vehicle) {
         if (vehicle.equals(this.vehicle)) {
             return horaSortida;
         }
@@ -73,7 +78,7 @@ public class Tiquet {
     }
 
     public long minuts() {
-        return java.time.Duration.between(LocalDateTime.parse(horaEntrada), LocalDateTime.parse(horaSortida)).toMinutes();
+        return java.time.Duration.between(horaEntrada, horaSortida).toMinutes();
     }
 
      @Override

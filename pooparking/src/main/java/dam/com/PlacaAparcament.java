@@ -49,6 +49,12 @@ public abstract class PlacaAparcament {
         this.estatDisponibilitat = true;
     }
 
+    public void desaparcar () {
+        this.vehicleAparcat = null;
+        this.estatDisponibilitat = true;
+    }
+    
+
     public abstract boolean compatible (Vehicles vehicle);
 
     public String consultarPlaca() {
@@ -71,7 +77,6 @@ public abstract class PlacaAparcament {
         if (!compatible(vehicle)) {
             throw new IllegalArgumentException("Vehicle incompatible amb la plaça");
             }
-
         setVehicleAparcat(vehicle);
         ocuparPlaca();
     }
