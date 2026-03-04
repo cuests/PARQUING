@@ -3,21 +3,26 @@ package dam.com.Places;
 import dam.com.vehicles.MidaVehicle;
 import dam.com.vehicles.Vehicles;
 
-public class PlacaCompacta extends PlacaAparcament{
+//hereda de PlacaAparcament (PlacaAparcament es abstracta)
+public class PlacaCompacta extends PlacaAparcament {
 
+    // protected es per a que només es pugui accedir des de la classe i les seves
+    // subclasses
     protected MidaVehicle MidaMaxima;
 
     @Override
-    public boolean compatible (Vehicles vehicle){
-        if (vehicle.getMida() == MidaVehicle.PETIT){
+    public boolean compatible(Vehicles vehicle) {
+        if (vehicle.getMida() == MidaVehicle.PETIT) {
             return true;
         }
-        return false;  
-}
+        return false;
+    }
 
     public PlacaCompacta(int numeroPlaca, Coordenada[] coordenades) {
 
+        // super es per a cridar al constructor de la classe pare
         super(numeroPlaca, coordenades);
+        // per aixo es posa protected perque PlacaCompacta nomès admet vehicles petits
         this.MidaMaxima = MidaVehicle.PETIT;
     }
 
@@ -26,12 +31,4 @@ public class PlacaCompacta extends PlacaAparcament{
         return "PlacaCompacta [MidaMaxima=" + MidaMaxima + super.toString() + "]";
     }
 
-    @Override
-    protected void horaSortida(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'horaSortida'");
-    }
-
 }
-
-

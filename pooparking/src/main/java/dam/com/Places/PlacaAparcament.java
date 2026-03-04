@@ -40,10 +40,11 @@ public abstract class PlacaAparcament {
 
     public void setNumeroPlaca(int numeroPlaca) {
 
-        if (numeroPlaca < 0) throw new IllegalArgumentException("Les places comencen per el 1");
+        if (numeroPlaca < 0)
+            throw new IllegalArgumentException("Les places comencen per el 1");
 
         this.numeroPlaca = numeroPlaca;
-        
+
     }
 
     public void setVehicleAparcat(Vehicles vehicleAparcat) {
@@ -62,15 +63,17 @@ public abstract class PlacaAparcament {
         this.estatDisponibilitat = true;
     }
 
-    public void desaparcar () {
+    public void desaparcar() {
         this.vehicleAparcat = null;
         this.estatDisponibilitat = true;
     }
 
-    public abstract boolean compatible (Vehicles vehicle);
+    // metodo abstracto que se implementara en las subclases para comprobar si el
+    // vehicle es compatible con la placa
+    public abstract boolean compatible(Vehicles vehicle);
 
     public String consultarPlaca() {
-        if (this.estatDisponibilitat) { 
+        if (this.estatDisponibilitat) {
             return "La placa esta lliure";
         } else {
             return "La placa esta ocupada";
@@ -82,17 +85,18 @@ public abstract class PlacaAparcament {
      * Lança una excepció si la plaça està ocupada o el vehicle no és compatible.
      */
     public void aparcarVehicle(Vehicles vehicle) throws Exception {
+        if (vehicle == null) {
+            throw new IllegalArgumentException("Vehicle incorrecte!");
+        }
+
         if (!this.estatDisponibilitat) {
-            throw new IllegalStateException("La plaça està ocupada");
+            throw new IllegalArgumentException("La plaça ja està ocupada");
         }
 
         if (!compatible(vehicle)) {
-            throw new IllegalArgumentException("Vehicle incompatible amb la plaça");
-            }
+            throw new IllegalArgumentException("La plaça no és compatible");
+        }
         setVehicleAparcat(vehicle);
         ocuparPlaca();
     }
-
-    protected abstract void horaSortida(int i);
-
 }

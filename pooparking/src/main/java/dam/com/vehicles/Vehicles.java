@@ -1,12 +1,17 @@
 package dam.com.vehicles;
 
+//una clase abstracta es una clase que no se puede instanciar
+//abstract se usa para implantar metodos que van a usar las otras clases.
+
 public abstract class Vehicles {
+    // protected es para que solo se pueda acceder desde la clase y sus subclases
     protected String matricula;
     protected MidaVehicle mida;
+    protected Marca marca;
 
     @Override
     public String toString() {
-        return "Vehicles [matricula=" + matricula + ", mida=" + mida + "]";
+        return "Vehicles [matricula=" + matricula + ", mida=" + mida + ", marca=" + marca + "]";
     }
 
     public String getMatricula() {
@@ -37,5 +42,13 @@ public abstract class Vehicles {
 
     public void setMida(MidaVehicle mida) {
         this.mida = mida;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 }
