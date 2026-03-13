@@ -172,44 +172,7 @@ classDiagram
 
 ## 🔄 Diagrama de Casos d'Ús
 
-```plantuml
-@startuml CasosUs_Parking
-
-left to right direction
-skinparam packageStyle rectangle
-
-actor "Conductor" as Conductor
-actor "Sistema" as Sistema
-
-rectangle "Gestor de Parking" {
-
-    usecase "Aparcar vehicle" as UC1
-    usecase "Seleccionar plaça compatible" as UC2
-    usecase "Generar tiquet" as UC3
-    usecase "Desaparcar vehicle" as UC4
-    usecase "Calcular preu" as UC5
-    usecase "Consultar estat del parking" as UC6
-    usecase "Consultar tiquet" as UC7
-
-}
-
-Conductor --> UC1
-Conductor --> UC4
-Conductor --> UC6
-Conductor --> UC7
-
-UC1 ..> UC2 : <<include>>
-UC1 ..> UC3 : <<include>>
-UC4 ..> UC5 : <<include>>
-
-Sistema --> UC2
-Sistema --> UC3
-Sistema --> UC5
-
-@enduml
-```
-
-> 💡 **Nota:** Renderitza el diagrama PlantUML a [https://www.plantuml.com/plantuml/uml/](https://www.plantuml.com/plantuml/uml/) o instal·la l'extensió **PlantUML** a VS Code.
+![Diagrama de Casos d'Ús](https://www.plantuml.com/plantuml/png/TP5DQyCm38Rl_XKYznRMJnYbT6JGww3qF3H7IqqLE_F7O8pzzod12qkw-IJfVII_bWyXee-fOIWnk70Epq_ehyRMYkarGdJWJNs9K1bFEXfdLH2rHOyDjAYlMDCfVZ119wEjcHJgw3mKfRDLwi82CC2G_SWd4o8rs8ivLiCCA8uKEgmYo7uA-5GW9mNI68Hu41CQFRpJnMYcVj2vl1j39sBIMcmBs39g1EsQ5gDv6JeMuuuZMV92H_EMA6PcEMOUAU2Vjw_6N8ci4tTNUqePMKyGPqDY-GEG1wFicLZscb_SDsp-QnWvtAelDUmOPhDzlujfPNLJsTnKjaewOJxluWNSmsvdhEPKqNx_IrdUAAkih2TA_jmyVJ79bvDyhGuaVXh-1W00)
 
 ---
 
