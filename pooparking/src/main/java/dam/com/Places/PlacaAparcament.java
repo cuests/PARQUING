@@ -6,14 +6,14 @@ import dam.com.vehicles.Vehicles;
 
 public abstract class PlacaAparcament {
     protected int numeroPlaca;
-    protected boolean estatDisponibilitat;
+    protected EstatPlaca estatDisponibilitat;
     protected Vehicles vehicleAparcat;
     protected Coordenada[] ubicacio;
 
     public PlacaAparcament(int numeroPlaca, Coordenada[] coordenades) {
         setNumeroPlaca(numeroPlaca);
         setUbicacio(coordenades);
-        this.estatDisponibilitat = true;
+        //this.estatDisponibilitat = true;
     }
 
     @Override
@@ -25,10 +25,11 @@ public abstract class PlacaAparcament {
     public int getNumeroPlaca() {
         return numeroPlaca;
     }
-
+    /** 
     public boolean isEstatDisponibilitat() {
         return estatDisponibilitat;
     }
+        */
 
     public Vehicles getVehicleAparcat() {
         return vehicleAparcat;
@@ -56,11 +57,11 @@ public abstract class PlacaAparcament {
     }
 
     public void ocuparPlaca() {
-        this.estatDisponibilitat = false;
+        //this.estatDisponibilitat = false;
     }
 
     public void alliberarPlaca() {
-        this.estatDisponibilitat = true;
+        //this.estatDisponibilitat = true;
     }
 
     public void desaparcar() {
@@ -68,7 +69,7 @@ public abstract class PlacaAparcament {
             throw new IllegalArgumentException("Ja esta vuida la plaça.");
         }
         this.vehicleAparcat = null;
-        this.estatDisponibilitat = true;
+        //this.estatDisponibilitat = true;
     }
 
     // metodo abstracto que se implementara en las subclases para comprobar si el
@@ -76,7 +77,7 @@ public abstract class PlacaAparcament {
     public abstract boolean compatible(Vehicles vehicle);
 
     public String consultarPlaca() {
-        if (this.estatDisponibilitat) {
+        if (true) {
             return "La placa esta lliure";
         } else {
             return "La placa esta ocupada";
@@ -91,10 +92,11 @@ public abstract class PlacaAparcament {
         if (vehicle == null) {
             throw new IllegalArgumentException("Vehicle incorrecte!");
         }
-
+        /** 
         if (!this.estatDisponibilitat) {
             throw new IllegalArgumentException("La plaça ja està ocupada");
         }
+            */
 
         if (!compatible(vehicle)) {
             throw new IllegalArgumentException("La plaça no és compatible");

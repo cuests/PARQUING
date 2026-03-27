@@ -25,7 +25,7 @@ public class PlacaRegular extends PlacaAparcament {
         // per aixo es posa protected perque PlacaRegular nomès admet vehicles petits o
         // mitjans
         this.MidaMaxima = MidaVehicle.MITJA;
-        this.estatDisponibilitat = true;
+        //this.estatDisponibilitat = true;
 
     }
 

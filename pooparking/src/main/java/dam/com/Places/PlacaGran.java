@@ -20,7 +20,7 @@ public class PlacaGran extends PlacaAparcament {
         // per aixo es posa protected perque PlacaGran admet vehicles petits, mitjans i
         // grans
         this.MidaMaxima = MidaVehicle.GRAN;
-        this.estatDisponibilitat = true;
+        //this.estatDisponibilitat = true;
 
     }
 
