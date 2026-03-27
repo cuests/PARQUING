@@ -4,9 +4,9 @@ Sistema de gestió d'aparcament desenvolupat en Java. Permet aparcar i desaparca
 
 ---
 
-## 📐 Diagrames de Classes
+## Diagrames de Classes
 
-### 🚗 Vehicles
+### Vehicles
 
 ```mermaid
 classDiagram
@@ -64,7 +64,7 @@ classDiagram
 
 ---
 
-### 🅿️ Places d'Aparcament
+### Places d'Aparcament
 
 ```mermaid
 classDiagram
@@ -126,7 +126,7 @@ classDiagram
 
 ---
 
-### 🎫 Tiquets i Gestor
+### Tiquets i Gestor
 
 ```mermaid
 classDiagram
@@ -170,19 +170,19 @@ classDiagram
 
 ---
 
-## 🔄 Diagrama de Casos d'Ús
+## Diagrama de Casos d'Ús
 
 ![Diagrama de Casos d'Ús](https://www.plantuml.com/plantuml/png/TP5DQyCm38Rl_XKYznRMJnYbT6JGww3qF3H7IqqLE_F7O8pzzod12qkw-IJfVII_bWyXee-fOIWnk70Epq_ehyRMYkarGdJWJNs9K1bFEXfdLH2rHOyDjAYlMDCfVZ119wEjcHJgw3mKfRDLwi82CC2G_SWd4o8rs8ivLiCCA8uKEgmYo7uA-5GW9mNI68Hu41CQFRpJnMYcVj2vl1j39sBIMcmBs39g1EsQ5gDv6JeMuuuZMV92H_EMA6PcEMOUAU2Vjw_6N8ci4tTNUqePMKyGPqDY-GEG1wFicLZscb_SDsp-QnWvtAelDUmOPhDzlujfPNLJsTnKjaewOJxluWNSmsvdhEPKqNx_IrdUAAkih2TA_jmyVJ79bvDyhGuaVXh-1W00)
 
 ---
 
-## 🗣️ Diagrama de Estats Classe Plaça Aparcament
+## Diagrama de Estats Classe Plaça Aparcament
 
-![Diagrama de Estats](www.plantuml.com/plantuml/png/SoWkIImgAStDuSh8J4bLICqjAAbKI4ajJYxAB2Z9pC_ZuehMYbNGrRLJyF7n30rovUA2q60XV-VG04SNHmKhXSI2nABanAAmr8pCv9nK3Kqkc1H29qXLJavcKcfHOb50Jc9o8WvL8DkXnW5LEAJcfG1T1m00)
+![Diagrama de Estats](https://www.plantuml.com/plantuml/png/SoWkIImgAStDuSh8J4bLICqjAAbKI4ajJYxAB2Z9pC_ZuehMYbNGrRLJyF7n30rovUA2q60XV-VG04SNHmKhXSI2nABanAAmr8pCv9nK3Kqkc1H29qXLJavcKcfHOb50Jc9o8WvL8DkXnW5LEAJcfG1T1m00)
 
 ---
 
-## 🏗️ Estructura del Projecte
+## Estructura del Projecte
 
 ```
 src/
@@ -208,7 +208,7 @@ src/
 
 ---
 
-## ⚙️ Funcionament
+## Funcionament
 
 1. Es crea un `GestorParking` amb una llista de places (`PlacaCompacta`, `PlacaRegular`, `PlacaGran`).
 2. Es crida `aparcarVehicle(vehicle)` → el gestor busca la primera plaça compatible i genera un `Tiquet`.
