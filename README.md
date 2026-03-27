@@ -176,6 +176,12 @@ classDiagram
 
 ---
 
+## 🗣️ Diagrama de Estats Classe Plaça Aparcament
+
+![Diagrama de Estats](www.plantuml.com/plantuml/png/SoWkIImgAStDuSh8J4bLICqjAAbKI4ajJYxAB2Z9pC_ZuehMYbNGrRLJyF7n30rovUA2q60XV-VG04SNHmKhXSI2nABanAAmr8pCv9nK3Kqkc1H29qXLJavcKcfHOb50Jc9o8WvL8DkXnW5LEAJcfG1T1m00)
+
+---
+
 ## 🏗️ Estructura del Projecte
 
 ```

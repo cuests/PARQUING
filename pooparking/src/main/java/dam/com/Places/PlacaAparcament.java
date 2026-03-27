@@ -64,6 +64,9 @@ public abstract class PlacaAparcament {
     }
 
     public void desaparcar() {
+        if (this.vehicleAparcat == null){
+            throw new IllegalArgumentException("Ja esta vuida la plaça.");
+        }
         this.vehicleAparcat = null;
         this.estatDisponibilitat = true;
     }

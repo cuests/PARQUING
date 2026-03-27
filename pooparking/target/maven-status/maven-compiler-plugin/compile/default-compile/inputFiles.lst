@@ -1,12 +1,14 @@
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/GestorParking.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/Main.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/MidaVehicle.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/PlacaAparcament.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/places/Coordenada.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/places/PlacaCompacta.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/places/PlacaGran.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/places/PlacaRegular.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/vehicles/Camio.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/vehicles/Cotxe.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/vehicles/Motocicleta.java
-/home/alumne/Documents/Programació/POO PARQUING/pooparking/src/main/java/dam/com/vehicles/Vehicles.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/GestorParking.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/Main.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/Places/Coordenada.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/Places/PlacaAparcament.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/Places/PlacaCompacta.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/Places/PlacaGran.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/Places/PlacaRegular.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/Tickets/Tiquet.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/vehicles/Camio.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/vehicles/Cotxe.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/vehicles/Marca.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/vehicles/MidaVehicle.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/vehicles/Motocicleta.java
+/home/alumne/Documents/Entorns de desenvolupament/UML PARQUING/PARQUING/pooparking/src/main/java/dam/com/vehicles/Vehicles.java
