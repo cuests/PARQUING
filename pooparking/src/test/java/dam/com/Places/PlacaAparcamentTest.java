@@ -2,7 +2,9 @@ package dam.com.Places;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -38,17 +40,37 @@ public class PlacaAparcamentTest {
         camio = new Camio("3333-CCC", Marca.FORD);
     }
 
+    // ── Tests estaLliure ──────────────────────────────────────────────────────
+
+    @Test
+    public void test_estaLliureNovaPlaca() {
+        assertTrue(placaRegular.estaLliure(), "Una plaça nova hauria d'estar lliure.");
+    }
+
+    @Test
+    public void test_estaOcupadaDesprésAparcar() throws Exception {
+        placaRegular.aparcarVehicle(cotxe);
+        assertFalse(placaRegular.estaLliure(), "La plaça hauria d'estar ocupada després d'aparcar.");
+    }
+
+    @Test
+    public void test_estaLliureDesprésDesaparcar() throws Exception {
+        placaRegular.aparcarVehicle(cotxe);
+        placaRegular.desaparcar();
+        assertTrue(placaRegular.estaLliure(), "La plaça hauria d'estar lliure després de desaparcar.");
+    }
+
+    // ── Tests aparcarVehicle ──────────────────────────────────────────────────
+
     @Test
     public void test1_AparcarVehicleValidCompatible() throws Exception {
-        // T1 Lliure, Vehicle vàlid, Compatible
         placaRegular.aparcarVehicle(cotxe);
         assertEquals(cotxe, placaRegular.getVehicleAparcat(), "El vehicle hauria d'estar aparcat correctament.");
-        //assertTrue(!placaRegular.isEstatDisponibilitat(), "La plaça hauria d'estar ocupada.");
+        assertFalse(placaRegular.estaLliure(), "La plaça hauria d'estar ocupada.");
     }
 
     @Test
     public void test2_AparcarVehicleNull() {
-        // T2 Lliure, null, -
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             placaRegular.aparcarVehicle(null);
         });
@@ -57,7 +79,6 @@ public class PlacaAparcamentTest {
 
     @Test
     public void test3_AparcarVehicleNoCompatible() {
-        // T3 Lliure, Vehicle vàlid, No compatible
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             placaCompacta.aparcarVehicle(cotxe);
         });
@@ -66,8 +87,8 @@ public class PlacaAparcamentTest {
 
     @Test
     public void test4_AparcarPlacaOcupada() throws Exception {
-        // T4 Ocupada, Vehicle vàlid, Compatible
         placaRegular.aparcarVehicle(cotxe);
+        assertFalse(placaRegular.estaLliure(), "La plaça hauria d'estar ocupada.");
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             placaRegular.aparcarVehicle(moto);
@@ -77,9 +98,9 @@ public class PlacaAparcamentTest {
 
     @Test
     public void test5_AparcarDespresDeDesaparcar() throws Exception {
-        // T5 Ocupada -> alliberada, Vehicle vàlid, Compatible
         placaRegular.aparcarVehicle(cotxe);
         placaRegular.desaparcar();
+        assertTrue(placaRegular.estaLliure(), "La plaça hauria d'estar lliure després de desaparcar.");
         assertDoesNotThrow(() -> {
             placaRegular.aparcarVehicle(moto);
         });
@@ -88,7 +109,6 @@ public class PlacaAparcamentTest {
 
     @Test
     public void test6_AparcarMateixVehicleDosCops() throws Exception {
-        // T6 Lliure -> ocupada, Mateix vehicle, Compatible
         placaRegular.aparcarVehicle(cotxe);
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -99,7 +119,6 @@ public class PlacaAparcamentTest {
 
     @Test
     public void test7_AparcarVehiclePetitEnPlacaRegular() throws Exception {
-        // T7 Lliure, Vehicle petit, Compatible (no ideal)
         placaRegular.aparcarVehicle(moto);
         assertEquals(moto, placaRegular.getVehicleAparcat(),
                 "El vehicle petit aparca correctament encara que la plaça sigui més gran.");
@@ -107,21 +126,18 @@ public class PlacaAparcamentTest {
 
     @Test
     public void test8_AparcarVehiclePetitEnPlacaCompacta() throws Exception {
-        // T8 Lliure, Vehicle petit, Ideal
         placaCompacta.aparcarVehicle(moto);
         assertEquals(moto, placaCompacta.getVehicleAparcat());
     }
 
     @Test
     public void test9_AparcarVehicleGranEnPlacaGran() throws Exception {
-        // T9 Lliure, Vehicle gran, Compatible només en plaça gran
         placaGran.aparcarVehicle(camio);
         assertEquals(camio, placaGran.getVehicleAparcat());
     }
 
     @Test
     public void test10_AparcarVehicleGranEnPlacaRegular() {
-        // T10 Lliure, Vehicle gran, No compatible
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             placaRegular.aparcarVehicle(camio);
         });

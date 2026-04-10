@@ -71,7 +71,7 @@ classDiagram
     class PlacaAparcament {
         <<abstract>>
         #int numeroPlaca
-        #boolean estatDisponibilitat
+        #EstatPlaca estatDisponibilitat
         #Vehicles vehicleAparcat
         #Coordenada[] ubicacio
         +aparcarVehicle(Vehicles) void
@@ -79,8 +79,28 @@ classDiagram
         +ocuparPlaca() void
         +alliberarPlaca() void
         +consultarPlaca() String
+        +estaLliure() boolean
         +compatible(Vehicles) boolean*
-        +isEstatDisponibilitat() boolean
+        +getEstatDisponibilitat() EstatPlaca
+    }
+
+    class EstatPlaca {
+        <<interface>>
+        +aparcarVehicle(PlacaAparcament) void
+        +desaparcar(PlacaAparcament) void
+        +estaLliure() boolean
+    }
+
+    class EstatPlacaLliure {
+        +aparcarVehicle(PlacaAparcament) void
+        +desaparcar(PlacaAparcament) void
+        +estaLliure() boolean
+    }
+
+    class EstatPlacaOcupada {
+        +aparcarVehicle(PlacaAparcament) void
+        +desaparcar(PlacaAparcament) void
+        +estaLliure() boolean
     }
 
     class PlacaCompacta {
@@ -115,6 +135,9 @@ classDiagram
     PlacaAparcament <|-- PlacaGran
     PlacaAparcament --> Coordenada
     PlacaAparcament --> Vehicles
+    PlacaAparcament --> EstatPlaca : estatDisponibilitat
+    EstatPlaca <|.. EstatPlacaLliure
+    EstatPlaca <|.. EstatPlacaOcupada
 ```
 
 > **Compatibilitat de places:**
@@ -178,7 +201,19 @@ classDiagram
 
 ## Diagrama de Estats Classe Plaça Aparcament
 
-![Diagrama de Estats](https://www.plantuml.com/plantuml/png/SoWkIImgAStDuSh8J4bLICqjAAbKI4ajJYxAB2Z9pC_ZuehMYbNGrRLJyF7n30rovUA2q60XV-VG04SNHmKhXSI2nABanAAmr8pCv9nK3Kqkc1H29qXLJavcKcfHOb50Jc9o8WvL8DkXnW5LEAJcfG1T1m00)
+```mermaid
+stateDiagram-v2
+    [*] --> Lliure : new PlacaAparcament()
+
+    Lliure : EstatPlacaLliure
+    Lliure : estaLliure() = true
+
+    Ocupada : EstatPlacaOcupada
+    Ocupada : estaLliure() = false
+
+    Lliure --> Ocupada : aparcarVehicle(vehicle)\nocuparPlaca() → new EstatPlacaOcupada()
+    Ocupada --> Lliure : desaparcar()\nalliberarPlaca() → new EstatPlacaLliure()
+```
 
 ---
 
