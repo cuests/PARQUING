@@ -16,4 +16,8 @@ public class EstatPlacaOcupada implements EstatPlaca {
         placa = null;
 
     }
+    @Override
+    public boolean estaLliure () {
+        return false;
+    }; 
 }

@@ -10,10 +10,9 @@ public abstract class PlacaAparcament {
     protected Vehicles vehicleAparcat;
     protected Coordenada[] ubicacio;
 
-    public PlacaAparcament(int numeroPlaca, Coordenada[] coordenades) {
+    public PlacaAparcament(int numeroPlaca, Coordenada[] coordenades, boolean estaLliure) {
         setNumeroPlaca(numeroPlaca);
         setUbicacio(coordenades);
-        //this.estatDisponibilitat = true;
     }
 
     @Override
@@ -83,6 +82,11 @@ public abstract class PlacaAparcament {
             return "La placa esta ocupada";
         }
     }
+
+
+    public boolean estaLliure() {
+        return this.estaLliure();
+    };
 
     /**
      * Intenta aparcar un vehicle en aquesta placa.

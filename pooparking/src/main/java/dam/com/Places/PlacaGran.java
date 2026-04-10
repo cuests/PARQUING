@@ -16,7 +16,7 @@ public class PlacaGran extends PlacaAparcament {
 
     public PlacaGran(int numeroPlaca, Coordenada[] coordenades) {
         // super es per a cridar al constructor de la classe pare
-        super(numeroPlaca, coordenades);
+        super(numeroPlaca, coordenades, false);
         // per aixo es posa protected perque PlacaGran admet vehicles petits, mitjans i
         // grans
         this.MidaMaxima = MidaVehicle.GRAN;

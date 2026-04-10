@@ -16,6 +16,10 @@ public class EstatPlacaLliure implements EstatPlaca {
         placa = null;
 
     }
+    @Override
+    public boolean estaLliure () {
+        return true;
+    }; 
 
     
 }
