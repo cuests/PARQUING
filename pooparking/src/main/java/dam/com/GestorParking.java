@@ -3,6 +3,8 @@ package dam.com;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import dam.com.Estrategies.EstrategiaPagament;
+import dam.com.Estrategies.TarifaPerTemps;
 import dam.com.Places.PlacaAparcament;
 import dam.com.Tickets.Tiquet;
 import dam.com.vehicles.Vehicles;
@@ -12,14 +14,24 @@ public class GestorParking {
     private ArrayList<PlacaAparcament> places;
     private ArrayList<Tiquet> tiquets = new ArrayList<>();
 
-    public static final double PREU_MINUT = 2.0;
+    private EstrategiaPagament estrategia;
 
     public GestorParking(ArrayList<PlacaAparcament> places) {
         this.places = places;
+        this.estrategia = new TarifaPerTemps(); // estratègia per defecte
     }
 
     public GestorParking() {
         this.places = new ArrayList<>();
+        this.estrategia = new TarifaPerTemps(); // estratègia per defecte
+    }
+
+    public void setEstrategia(EstrategiaPagament estrategia) {
+        this.estrategia = estrategia;
+    }
+
+    public EstrategiaPagament getEstrategia() {
+        return estrategia;
     }
 
     public void afegirPlaça(PlacaAparcament plaça) {
@@ -54,7 +66,7 @@ public class GestorParking {
         tiquet.getPlaça().desaparcar();
         tiquet.setHoraSortida(LocalDateTime.now().plusMinutes(15));
 
-        double preu = tiquet.minuts() * PREU_MINUT;
+        double preu = estrategia.calcularPreu(tiquet);
         return preu;
     }
 
