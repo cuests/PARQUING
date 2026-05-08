@@ -231,7 +231,10 @@ src/
         │   ├── PlacaGran.java
         │   └── Coordenada.java
         ├── Tickets/
-        │   └── Tiquet.java
+        │   ├── Tiquet.java
+        │   ├── TiquetRepository.java
+        │   ├── ArrayListTiquetRepository.java
+        │   └── HashMapTiquetRepository.java
         └── vehicles/
             ├── Vehicles.java          ← abstracta
             ├── Cotxe.java
@@ -247,4 +250,60 @@ src/
 
 1. Es crea un `GestorParking` amb una llista de places (`PlacaCompacta`, `PlacaRegular`, `PlacaGran`).
 2. Es crida `aparcarVehicle(vehicle)` → el gestor busca la primera plaça compatible i genera un `Tiquet`.
-3. Per desaparcar, es crida `desaparcar(tiquet)` → s'allibera la plaça i es calcula el preu: `minuts × 2,0 €/minut`.    
+3. Per desaparcar, es crida `desaparcar(tiquet)` → s'allibera la plaça i es calcula el preu: `minuts × 2,0 €/minut`.
+
+---
+
+## HashMapTiquetRepository
+
+### Diagrama de Classes
+
+```mermaid
+classDiagram
+    class TiquetRepository {
+        <<interface>>
+        +save(Tiquet) void
+        +findById(int) Optional~Tiquet~
+        +delete(Tiquet) boolean
+        +findAll() List~Tiquet~
+    }
+
+    class ArrayListTiquetRepository {
+        -ArrayList~Tiquet~ tiquets
+        +save(Tiquet) void
+        +findById(int) Optional~Tiquet~
+        +delete(Tiquet) boolean
+        +findAll() List~Tiquet~
+    }
+
+    class HashMapTiquetRepository {
+        -HashMap~Integer, Tiquet~ tiquets
+        +save(Tiquet) void
+        +findById(int) Optional~Tiquet~
+        +delete(Tiquet) boolean
+        +findAll() List~Tiquet~
+    }
+
+    class Tiquet {
+        -int numero
+        -Vehicles vehicle
+        -PlacaAparcament plaça
+        -LocalDateTime horaEntrada
+        -LocalDateTime horaSortida
+        +getNumero() int
+        +minuts() long
+    }
+
+    TiquetRepository <|.. ArrayListTiquetRepository
+    TiquetRepository <|.. HashMapTiquetRepository
+    HashMapTiquetRepository --> Tiquet : clau → numero
+    ArrayListTiquetRepository --> Tiquet : llista
+```
+
+> **Diferències entre implementacions:**
+> | Operació | `ArrayListTiquetRepository` | `HashMapTiquetRepository` |
+> |---|:---:|:---:|
+> | `save` | O(1) | O(1) |
+> | `findById` | O(n) | **O(1)** ✅ |
+> | `delete` | O(n) | **O(1)** ✅ |
+> | `findAll` | O(n) | O(n) |
